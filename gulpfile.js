@@ -44,12 +44,12 @@ gulp.task('tsc', function(done) {
   runSpawn(done, process.execPath, ['node_modules/typescript/bin/tsc']);
 });
 
-gulp.task('prepublish', function(done) {
+gulp.task('prepare', function(done) {
   runSequence('format', 'tsc', 'copy', done);
 });
 
-gulp.task('default',['prepublish']);
-gulp.task('build',['prepublish']);
+gulp.task('default',['prepare']);
+gulp.task('build',['prepare']);
 
 gulp.task('test', ['build'], function(done) {
   var opt_arg = [];
